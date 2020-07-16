@@ -5,7 +5,7 @@ import TimeFormats from './TimeFormats.js'
 
 function App() {
   return (
-    <div className="App">
+    <div>
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
