@@ -43,10 +43,7 @@ function App() {
   </div>
   <CommonFormats/>
 
-
-
-
-    <Footer/>
+  <Footer/>
     </div>
   );
 }
