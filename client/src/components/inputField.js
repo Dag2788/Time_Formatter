@@ -54,7 +54,7 @@ class InputField extends React.Component {
             </label>
           <input type="submit" value="Submit" />
         </form>
-        { onSuccess && <Result header="Result:" result={this.state.value}/> } 
+        <Result header="Result:" result={this.state.value} onSuccess={onSuccess}/> 
         </React.Fragment>
       );
     }
