@@ -6,11 +6,6 @@ function CommonFormats() {
 <React.Fragment>
      <div class="container">
       <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
     </div> 
 
 <div class="container">
@@ -20,14 +15,14 @@ function CommonFormats() {
 
   {/* <!--   Icon Section   --> */}
   <div class="row">
-    <div class="col s12 m6 push-m1">
+    <div class="col s6 m6 push-m1">
       <div class="icon-block">
         <h5 class="center">Date String</h5>
         <h5 class="center light">Sat Jun 09 2007 17:46:21</h5>
       </div>
     </div>
 
-    <div class="col s12 m6 pull-m1">
+    <div class="col s6 m6 pull-m1">
       <div class="icon-block">
         <h5 class="center">Format String</h5>
         <h5 class="center light">ddd mmm dd yyyy HH:MM:s</h5>

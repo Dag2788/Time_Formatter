@@ -7,13 +7,10 @@ function Navbar() {
       <ul class="right hide-on-med-and-down">
         <li><a href="https://github.com/Dag2788/Time_Formatter">Github</a></li>
       </ul>
-
-      <ul id="nav-mobile" class="sidenav">
-        <li><a href="https://github.com/Dag2788/Time_Formatter">Github</a></li>
-      </ul>
-      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
   </nav>
   )}
+
+
 
   export default Navbar;

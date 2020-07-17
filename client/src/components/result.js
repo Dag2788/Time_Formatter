@@ -10,7 +10,7 @@ function Result(props) {
     let { header, result, onSuccess } = props
 
     return (
-        <div style={{height: '70px'}}> 
+        <div style={{height: '200px'}}> 
         <label>
             <React.Fragment>
                 <br></br>
