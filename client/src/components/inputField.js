@@ -26,13 +26,16 @@ class InputField extends React.Component {
     }
   
     handleChange(event) {
-      this.setState({value: event.target.value});
+      this.setState({value: event.target.value, onSuccess: false
+      });
+
     }
   
     handleSubmit(event)  {
       event.preventDefault();
        let { handleInput } = this.props
-        let valid =  handleInput(this.state.value)
+       let valid = handleInput(this.state.value)
+    
         console.log(valid)
         this.setState({onSuccess: valid })
     }
@@ -52,9 +55,9 @@ class InputField extends React.Component {
             onChange={this.handleChange} 
             onFocus={this.clear} />
             </label>
-          <input type="submit" value="Submit" />
+          {/* <input type="submit" value="Submit" /> */}
         </form>
-        <Result header="Result:" result={this.state.value} onSuccess={onSuccess}/> 
+      <Result header="Result:" result={this.state.value} onSuccess={onSuccess}/> 
         </React.Fragment>
       );
     }
