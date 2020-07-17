@@ -44,7 +44,7 @@ class InputField extends React.Component {
         <React.Fragment>
         <form onSubmit={this.handleSubmit}>
           <label>
-           <h5 class="center">{title}</h5>
+           <h5>{title}</h5>
             <input 
             placeholder={placeholder} 
             type="text" 

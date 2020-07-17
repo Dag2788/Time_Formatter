@@ -10,13 +10,13 @@ function Result(props) {
     let { header, result, onSuccess } = props
 
     return (
-        <div style={{height: '100px'}} class="center"> 
+        <div style={{height: '100px'}}> 
         <label>
             <React.Fragment>
                 <br></br>
                 <br></br>
-                <h5 class="center">{header}</h5>
-           {onSuccess  &&   <h4 style={{height: '100px'}} class="header center orange-text">{result}</h4> }
+                <h5>{header}</h5>
+           {onSuccess  &&   <h4 style={{height: '100px'}} class="header orange-text">{result}</h4> }
             </React.Fragment>
         </label>
         </div>
