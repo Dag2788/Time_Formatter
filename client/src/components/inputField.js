@@ -1,19 +1,28 @@
 import React from 'react';
+import Result from './result'
 
 type Props = {
     title: String,
     placeholder: String,
     handleInput: Function,
-    successfulParse: Boolean
 }
 
 class InputField extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {value: '', clicked: false, successfulParse: false};
+      this.state = {value: '', onSuccess: false};
   
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
+      this.clear        = this.clear.bind(this)
+    }
+
+    clear() {
+      this.setState({
+        value: '',
+        onSuccess: false
+      });
+
     }
   
     handleChange(event) {
@@ -25,40 +34,28 @@ class InputField extends React.Component {
        let { handleInput } = this.props
         let valid =  handleInput(this.state.value)
         console.log(valid)
-        this.setState({successfulParse: valid, clicked: !this.state.clicked})
+        this.setState({onSuccess: valid })
 
     }
   
     render() {
         let {title, placeholder} = this.props
-        let { clicked, successfulParse } = this.state
+        let { onSuccess } = this.state
       return (
         <React.Fragment>
         <form onSubmit={this.handleSubmit}>
           <label>
-          <h5 class="center">{title}</h5>
-            <input placeholder={placeholder} type="text" value={this.state.value} onChange={this.handleChange} />
-          </label>
+           <h5 class="center">{title}</h5>
+            <input 
+            placeholder={placeholder} 
+            type="text" 
+            value={this.state.value} 
+            onChange={this.handleChange} 
+            onFocus={this.clear} />
+            </label>
           <input type="submit" value="Submit" />
         </form>
-        <div class="center"> 
-        <label>
-            { clicked && successfulParse && <React.Fragment>
-                <br></br>
-                <br></br>
-                <h5 class="center">Result:</h5>
-                <h4 class="header center orange-text">{this.state.value}</h4>
-            </React.Fragment>}
-        </label>
-        <label>
-            { clicked && !successfulParse && <React.Fragment>
-                <br></br>
-                <br></br>
-                <h5 class="center">Oops!</h5>
-                <h4 class="header center orange-text">We were not able convert {this.state.value}</h4>
-            </React.Fragment>}
-        </label>
-        </div>
+        { onSuccess && <Result header="Result:" result={this.state.value}/> } 
         </React.Fragment>
       );
     }
