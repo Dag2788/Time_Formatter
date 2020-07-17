@@ -1,5 +1,4 @@
 import React from 'react';
-import TimeFormats from '../TimeFormats'
 
 function CommonFormats() {
   return (

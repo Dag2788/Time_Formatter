@@ -1,5 +1,4 @@
 import React from 'react';
-import InputField from './inputField'
 import { formatTester } from '../utils/formatTester'
 import { dateTransformer } from '../utils/dateTransformer'
 import ConverterFunction from './converterFunctions'

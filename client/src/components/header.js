@@ -1,5 +1,5 @@
 import React from 'react';
-import TimeFormats from '../TimeFormats'
+import TimeFormats from '../timeFormats'
 
 
 function Header() {
