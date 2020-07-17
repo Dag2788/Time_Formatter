@@ -35,7 +35,6 @@ class InputField extends React.Component {
         let valid =  handleInput(this.state.value)
         console.log(valid)
         this.setState({onSuccess: valid })
-
     }
   
     render() {
