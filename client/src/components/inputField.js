@@ -3,12 +3,14 @@ import React from 'react';
 type Props = {
     title: String,
     placeholder: String,
+    handleInput: Function,
+    successfulParse: Boolean
 }
 
 class InputField extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {value: '', clicked: false};
+      this.state = {value: '', clicked: false, successfulParse: false};
   
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,14 +20,18 @@ class InputField extends React.Component {
       this.setState({value: event.target.value});
     }
   
-    handleSubmit(event) {
-        this.setState({clicked: !this.state.clicked})
-        event.preventDefault();
+    handleSubmit(event)  {
+      event.preventDefault();
+       let { handleInput } = this.props
+        let valid =  handleInput(this.state.value)
+        console.log(valid)
+        this.setState({successfulParse: valid, clicked: !this.state.clicked})
+
     }
   
     render() {
         let {title, placeholder} = this.props
-        let { clicked } = this.state
+        let { clicked, successfulParse } = this.state
       return (
         <React.Fragment>
         <form onSubmit={this.handleSubmit}>
@@ -37,11 +43,19 @@ class InputField extends React.Component {
         </form>
         <div class="center"> 
         <label>
-            { clicked && <React.Fragment>
+            { clicked && successfulParse && <React.Fragment>
                 <br></br>
                 <br></br>
                 <h5 class="center">Result:</h5>
                 <h4 class="header center orange-text">{this.state.value}</h4>
+            </React.Fragment>}
+        </label>
+        <label>
+            { clicked && !successfulParse && <React.Fragment>
+                <br></br>
+                <br></br>
+                <h5 class="center">Oops!</h5>
+                <h4 class="header center orange-text">We were not able convert {this.state.value}</h4>
             </React.Fragment>}
         </label>
         </div>
